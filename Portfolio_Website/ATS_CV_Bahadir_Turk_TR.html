@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahadır TÜRK - CV (Türkçe)</title>
+    <style>
+        /* A4 Print Layout Optimization */
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #111827;
+            line-height: 1.5;
+            font-size: 11pt;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-size: 24pt;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #1f2937;
+        }
+
+        h2 {
+            font-size: 14pt;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #374151;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 12pt;
+            margin: 5px 0;
+            color: #111827;
+        }
+
+        p,
+        ul {
+            margin: 5px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            font-size: 10.5pt;
+            color: #4b5563;
+        }
+
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .date,
+        .location {
+            font-size: 10pt;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .company {
+            font-weight: bold;
+        }
+
+        .role {
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        .print-btn {
+            display: block;
+            width: 250px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .print-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+
+            body {
+                max-width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="print-btn" onclick="window.print()">Yazdır / PDF Olarak Kaydet</button>
+
+    <div class="header-content">
+        <h1>Bahadır TÜRK</h1>
+        <div class="contact-info">
+            IT İş Analisti & PMO Adayı<br>
+            Ankara, Türkiye | bahadirturk@email.com | +90 5XX XXX XX XX<br>
+            <strong>LinkedIn:</strong> <a
+                href="https://www.linkedin.com/in/bahad%C4%B1r-t%C3%BCrk-04b706193/">linkedin.com/in/bahadirturk</a> |
+            <strong>Portfolyo:</strong> <a href="https://bahadirturk.netlify.app">bahadirturk.netlify.app</a> |
+            <strong>GitHub:</strong> <a href="https://github.com/Bahad1r-exe/pmo-portfolio">Bahad1r-exe</a>
+        </div>
+    </div>
+
+    <h2>Profesyonel Özet</h2>
+    <p>İş analizi, süreç modelleme ve proje koordinasyonu alanlarına odaklanmış bilgisayar mühendisliği son sınıf
+        öğrencisi. Çevik (Agile/Scrum) metodolojiler, gereksinim dokümantasyonu, süreç iyileştirme ve veri analizi
+        konularında yetkinlik sahibi. Teknik ekipler ile iş birimleri arasında köprü kurarak karmaşık iş ihtiyaçlarını
+        uygulanabilir geliştirme görevlerine dönüştürebilir, projelerin planlı şekilde ilerlemesini sağlar.</p>
+
+    <h2>Temel Yetkinlikler</h2>
+    <ul>
+        <li><strong>İş Analizi & PMO:</strong> Fonksiyonel ve Fonksiyonel Olmayan Gereksinimler, User Story, Kabul
+            Kriterleri, BPMN ile Süreç Modelleme, Paydaş Yönetimi, WBS (İş Kırılım Ağacı), Risk Yönetimi, Agile / Scrum
+            Çerçevesi.</li>
+        <li><strong>Teknik Altyapı:</strong> SQL (Karmaşık Sorgular, Performans), REST API Kavramları, RBAC Tasarımı,
+            Temel Veri Modelleme, UAT Senaryo Uygulaması.</li>
+        <li><strong>Veri & Raporlama:</strong> Dashboard Tasarımı (Power BI Mockup), KPI Tanımlama, SLA Takibi, İleri
+            Seviye Excel.</li>
+        <li><strong>Araçlar:</strong> Jira, Trello, Figma, İlişkisel Veritabanları, Microsoft Office.</li>
+    </ul>
+
+    <h2>Projeler & BT Analizleri</h2>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">UrbanEye - Akıllı Şehir Vatandaş İhbar Sistemi</span>
+            <span class="date">Gereksinim Analizi & Sistem Tasarımı</span>
+        </div>
+        <ul>
+            <li>Vatandaşların kullandığı mobil raporlama uygulaması ile belediyeler için web tabanlı yönetim panellerini
+                birleştiren uçtan uca SRS (Yazılım Gereksinim Şartnamesi) dokümantasyonu hazırlandı.</li>
+            <li>Sorun akışları BPMN ile dijitalleştirilerek, SLA hedeflerine uyumu garanti altına almak amacıyla
+                "Moderatör" ve "Koordinatör" iş rolleri tasarlandı ve görev atama mantığı kurgulandı.</li>
+            <li>Pahalı ve karmaşık yapay zeka mimarileri gerektirmeyecek etiket bazlı (Tag-signature) mükerrer kayıt
+                (Duplicate) engelleme stratejisi dizayn edildi.</li>
+            <li>Mobil (Flutter), API (NestJS) ve Coğrafi konumlama (PostGIS) olmak üzere çapraz platform teknik mimarisi
+                planlandı.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Dijital Kredi Başvuru Süreci Revizyonu (BRD)</span>
+            <span class="date">İş Analizi Simülasyonu</span>
+        </div>
+        <ul>
+            <li>Manuel kredi onayı süreçlerindeki darboğazlar ve yüksek müşteri kaybı (churn) oranlarına yol açan
+                operasyonel yavaşlıklar tespit edildi.</li>
+            <li>Karar motoru entegrasyonlarını içeren, mevcut (AS-IS) ve hedef (TO-BE) BPMN süreç haritalarını ve API
+                gereksinimlerini barındıran kapsamlı İş Gereksinim Dokümanı (BRD) yazıldı.</li>
+            <li>Geliştirici ekibe direkt iletilmeye hazır halde 12 Adet Fonksiyonel Gereksinim (FR) ve 8 Adet kabul
+                kriterleri ile tanımlanmış User Story dokümante edildi.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Mobil Bankacılık Uygulaması Güncelleme V2.4</span>
+            <span class="date">PMO & Çevik Yönetim Simülasyonu</span>
+        </div>
+        <ul>
+            <li>Ana sayfa arayüz yenilemesi ve backend performans optimizasyonu hedefleri için WBS (İş Kırılım Ağacı)
+                kullanılarak 3 aylık kapsamlı proje takvimi oluşturuldu.</li>
+            <li>App Store onay gecikmeleri ve API darboğazlarını öngören detaylı bir Risk Matrisi ve Paydaş
+                (Stakeholder) iletişim planı tasarlandı.</li>
+            <li>12 haftalık dönemi kapsayan 6 Çevik (Agile) Sprint koordine edilerek, backlog rafinasyonu (refinement)
+                ve Story Point tahminleme süreçleri planlandı.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Şube Performans & SLA Dashboard Projesi</span>
+            <span class="date">Veri Analitiği Simülasyonu</span>
+        </div>
+        <ul>
+            <li>Şube bazlı satış verimliliği ve operasyonel SLA (bekleme süreleri) metriklerini ana bankacılık
+                veritabanından çekmek üzere SQL mockup sorguları geliştirildi.</li>
+            <li>Operasyonel verimlilik ile Müşteri Tavsiye Skoru (NPS) göstergelerini korele eden, üst düzey yönetim
+                karar mekanizmalarını destekleyecek biçimde tasarlanmış interaktif Power BI maket paneli (Mockup
+                Dashboard) dizayn edildi.</li>
+        </ul>
+    </div>
+
+    <h2>İş Deneyimi</h2>
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Tunçalp Özgen TEKNOMER</span>
+            <span class="location">Ankara, Türkiye</span>
+        </div>
+        <div class="job-header">
+            <span class="role">Proje & BT Koordinasyon Stajyeri</span>
+            <span class="date">Şubat 2026 - Devam Ediyor</span>
+        </div>
+        <ul>
+            <li>Kuluçka merkezindeki start-up projelerinin gereksinim analizine destek verilerek, müşteri fikirleri
+                yapılandırılmış teknik analiz formatlarına dönüştürüldü.</li>
+            <li>Departmanlar arası iletişim akışları BPMN ile haritalanarak mevcut entegrasyon zafiyetleri ve süreç
+                darboğazları ortaya çıkarıldı.</li>
+            <li>Değer teslim süreçlerinin hedeflere uygun yürütülmesini sağlamak için iş birimleri gözetiminde planlanan
+                geliştirme sprintleri takip edildi.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">T.C. Gençlik ve Spor Bakanlığı</span>
+            <span class="location">Ankara, Türkiye</span>
+        </div>
+        <div class="job-header">
+            <span class="role">Etkinlik & Proje Yöneticisi (E-Spor)</span>
+            <span class="date">2023 - 2024</span>
+        </div>
+        <ul>
+            <li>Ulusal çapta gerçekleştirilen ve dijital - fiziksel entegrasyonu sağlayan gençlik kupası e-spor
+                turnuvasının uçtan uca takım koordinasyonu yönetildi.</li>
+            <li>Sponsorluk süreçleri düzenlendi; üniversiteler arası organizasyon katılımlarını şekillendiren etkinlik
+                takvimi oluşturularak oluşabilecek teknik operasyonel riskler minimalize edildi.</li>
+        </ul>
+    </div>
+
+    <h2>Eğitim</h2>
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Ankara Bilim Üniversitesi</span>
+            <span class="location">Ankara, Türkiye</span>
+        </div>
+        <div class="job-header">
+            <span class="role">Bilgisayar Mühendisliği (Lisans)</span>
+            <span class="date">Beklenen Mezuniyet: Haziran 2026</span>
+        </div>
+        <ul>
+            <li>AGNO: 2.97 / 4.00</li>
+        </ul>
+    </div>
+
+    <h2>Sertifikalar & Diller</h2>
+    <ul>
+        <li><strong>Sertifikalar:</strong> Scrum Fundamentals Certified (SFC), Google Veri Analitiği Profesyonel
+            Sertifikası, İleri Seviye Veritabanı ve SQL Eğitimi.</li>
+        <li><strong>Yabancı Diller:</strong> İngilizce (İleri, C1), Almanca (Orta, B1), Türkçe (Anadil).</li>
+    </ul>
+
+</body>
+
+</html>
