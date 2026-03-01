@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahadır TÜRK - CV</title>
+    <style>
+        /* A4 Print Layout Optimization */
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #111827;
+            line-height: 1.5;
+            font-size: 11pt;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-size: 24pt;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #1f2937;
+        }
+
+        h2 {
+            font-size: 14pt;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #374151;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 12pt;
+            margin: 5px 0;
+            color: #111827;
+        }
+
+        p,
+        ul {
+            margin: 5px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            font-size: 10.5pt;
+            color: #4b5563;
+        }
+
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .date,
+        .location {
+            font-size: 10pt;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .company {
+            font-weight: bold;
+        }
+
+        .role {
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        .print-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .print-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+
+            body {
+                max-width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+    <div class="header-content">
+        <h1>Bahadır TÜRK</h1>
+        <div class="contact-info">
+            IT Business Analyst & PMO Candidate<br>
+            Ankara, Turkey | bahadirturk@email.com | +90 5XX XXX XX XX<br>
+            <strong>LinkedIn:</strong> <a
+                href="https://www.linkedin.com/in/bahad%C4%B1r-t%C3%BCrk-04b706193/">linkedin.com/in/bahadirturk</a> |
+            <strong>Portfolio:</strong> <a href="https://bahadirturk.netlify.app">bahadirturk.netlify.app</a> |
+            <strong>GitHub:</strong> <a href="https://github.com/Bahad1r-exe/pmo-portfolio">Bahad1r-exe</a>
+        </div>
+    </div>
+
+    <h2>Professional Summary</h2>
+    <p>Computer Engineering senior student with a strong focus on business analysis, process modeling, and project
+        coordination. Adept at agile methodologies (Scrum), requirements documentation, process improvement, and data
+        analysis. Demonstrated ability to bridge the gap between technical teams and business units, translating complex
+        requirements into actionable development tasks. Passionate about leveraging data and structured workflows for
+        continuous improvement in IT projects.</p>
+
+    <h2>Core Competencies</h2>
+    <ul>
+        <li><strong>Business Analysis & PMO:</strong> Functional & Non-functional Requirements, User Stories, Acceptance
+            Criteria, BPMN Process Mapping, Stakeholder Management, WBS, Risk Management, Agile / Scrum Framework.</li>
+        <li><strong>Technical Foundation:</strong> SQL (Complex Queries, Performance), REST API Concepts, RBAC Design,
+            Basic Data Modeling, UAT Execution.</li>
+        <li><strong>Data & Reporting:</strong> Dashboard Design (Power BI Mockups), KPI Definition, SLA Monitoring,
+            Advanced Excel.</li>
+        <li><strong>Tools:</strong> Jira, Trello, Figma, Relational Databases, Microsoft Office Suite.</li>
+    </ul>
+
+    <h2>Projects & IT Analyses</h2>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">UrbanEye - Smart City Citizen Issue Reporting System</span>
+            <span class="date">Requirement Analysis & System Design</span>
+        </div>
+        <ul>
+            <li>Engineered the comprehensive SRS (Software Requirements Specification) for a municipal smart city
+                platform merging citizen mobile reporting with web-based operational dashboards.</li>
+            <li>Digitized issue workflows via BPMN, introducing moderator and coordinator operational roles to ensure
+                scalable assignment logic and SLA compliance tracking.</li>
+            <li>Designed a tag-based triage strategy mitigating duplicate reporting overhead without demanding complex
+                AI architecture.</li>
+            <li>Planned cross-platform technical architecture covering mobile (Flutter), API (NestJS), and geospatial
+                tracking (PostGIS).</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Digital Credit Application Process Refactoring (BRD)</span>
+            <span class="date">Business Analysis Simulation</span>
+        </div>
+        <ul>
+            <li>Identified operational bottlenecks within manual loan approval processes resulting in high customer
+                churn rates.</li>
+            <li>Drafted a complete BRD including AS-IS and TO-BE process mapping (BPMN), detailing API-driven decision
+                engine integrations.</li>
+            <li>Documented exactly 12 Functional Requirements and 8 User Stories accompanied by precise Acceptance
+                Criteria for developer hand-off.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Mobile Banking Application Update V2.4</span>
+            <span class="date">PMO & Agile Delivery Simulation</span>
+        </div>
+        <ul>
+            <li>Structured a comprehensive 3-month project timeline via WBS targeting homepage UI modernization and
+                backend performance optimization.</li>
+            <li>Formulated an executive Risk Matrix predicting App Store approval delays and API integration
+                bottlenecks; aligned Stakeholder communication plans.</li>
+            <li>Coordinated 6 Agile Sprints over a 12-week span, planning backlog refinement and story point
+                estimations.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Branch Performance & SLA Dashboard Project</span>
+            <span class="date">Data Analytics Simulation</span>
+        </div>
+        <ul>
+            <li>Designed mock SQL queries targeting core banking databases to extract branch-specific sales efficiency
+                and SLA (wait times) metrics.</li>
+            <li>Mocked up an interactive conceptual Power BI Dashboard aimed at executive decision-making, correlating
+                Operational efficiency with Net Promoter Score (NPS) indicators.</li>
+        </ul>
+    </div>
+
+    <h2>Experience</h2>
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Tunçalp Özgen TEKNOMER</span>
+            <span class="location">Ankara, Turkey</span>
+        </div>
+        <div class="job-header">
+            <span class="role">Project & IT Coordination Intern</span>
+            <span class="date">Feb 2026 - Present</span>
+        </div>
+        <ul>
+            <li>Supported requirement analysis gathering for incubation center startup projects, translating client
+                ideas into structured technical briefs.</li>
+            <li>Mapped intra-departmental communication workflows utilizing BPMN to detect integration gaps and process
+                inefficiencies.</li>
+            <li>Tracked development sprints utilizing Agile principles alongside business units to guarantee timely
+                project milestones.</li>
+        </ul>
+    </div>
+
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Ministry of Youth and Sports</span>
+            <span class="location">Ankara, Turkey</span>
+        </div>
+        <div class="job-header">
+            <span class="role">Event & Project Manager (E-Sports)</span>
+            <span class="date">2023 - 2024</span>
+        </div>
+        <ul>
+            <li>Orchestrated cross-functional collaboration orchestrating a national youth e-sports cup spanning
+                multi-platform operations.</li>
+            <li>Controlled event scheduling, vendor risk mitigation, and stakeholder communications bridging
+                universities and sponsorships.</li>
+        </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="project-item">
+        <div class="job-header">
+            <span class="company">Ankara Science University</span>
+            <span class="location">Ankara, Turkey</span>
+        </div>
+        <div class="job-header">
+            <span class="role">Bachelor of Science, Computer Engineering</span>
+            <span class="date">Expected: June 2026</span>
+        </div>
+        <ul>
+            <li>GPA: 2.97 / 4.00</li>
+        </ul>
+    </div>
+
+    <h2>Certifications & Languages</h2>
+    <ul>
+        <li><strong>Certifications:</strong> Scrum Fundamentals Certified (SFC), Google Data Analytics Professional
+            Certificate, Advanced Database and SQL Training.</li>
+        <li><strong>Languages:</strong> English (Advanced, C1), German (Intermediate, B1), Turkish (Native).</li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanEye - Smart City Simulator</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scroll-hidden::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="h-screen flex flex-col hidden overflow-hidden md:flex">
+
+    <!-- Header -->
+    <header
+        class="bg-indigo-900 border-b border-indigo-700 p-4 shrink-0 shadow-lg z-10 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                </path>
+            </svg>
+            <h1 class="text-xl font-bold text-white tracking-widest">URBAN<span class="text-indigo-400">EYE</span></h1>
+            <span
+                class="ml-4 px-2 py-0.5 bg-indigo-800 text-indigo-200 text-xs font-semibold rounded-full border border-indigo-600">Smart
+                City Live Demo</span>
+        </div>
+        <div class="text-xs text-indigo-300">
+            SRS Analytics: 12 Functional Req | PostGIS Ready | Moderation Node
+        </div>
+    </header>
+
+    <div class="flex-1 flex overflow-hidden">
+        <!-- Left Panel: Citizen Mobile App -->
+        <div
+            class="w-1/3 border-r border-indigo-800/50 bg-slate-900 flex flex-col p-6 items-center overflow-y-auto scroll-hidden">
+            <div class="mb-4 text-center">
+                <h2 class="text-lg font-bold text-indigo-300">Vatandaş Mobil Ekranı</h2>
+                <p class="text-xs text-slate-500">Sorun Bildirimi (Flutter App Mockup)</p>
+            </div>
+
+            <!-- Mobile Phone Frame -->
+            <div class="w-[320px] bg-slate-800 rounded-[2.5rem] border-[8px] border-slate-700 shadow-2xl relative overflow-hidden flex flex-col"
+                style="height: 650px;">
+                <!-- Phone Notch -->
+                <div class="absolute top-0 inset-x-0 h-6 bg-slate-700 rounded-b-xl w-32 mx-auto z-20"></div>
+
+                <!-- App Header -->
+                <div class="bg-indigo-600 pt-10 pb-4 px-5 shadow text-white z-10 flex justify-between items-center">
+                    <span class="font-bold text-lg">Yeni Bildirim</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+
+                <!-- App Form -->
+                <div class="flex-1 p-5 bg-slate-100 overflow-y-auto">
+
+                    <div class="mb-4">
+                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Kategori</label>
+                        <select id="issueCategory"
+                            class="w-full p-3 rounded-lg border border-slate-300 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="Altyapı">Altyapı (Yol/Kaldırım)</option>
+                            <option value="Aydınlatma">Sokak Aydınlatması</option>
+                            <option value="Çevre">Çevre Temizliği & Çöp</option>
+                            <option value="Güvenlik">Park/Bahçe Bakımı</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Lokasyon (GPS)</label>
+                        <div
+                            class="w-full p-3 rounded-lg border border-slate-300 bg-slate-200 text-slate-600 flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z">
+                                </path>
+                            </svg>
+                            39.9207° N, 32.8541° E (Otomatik)
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Açıklama</label>
+                        <textarea id="issueDesc" rows="4"
+                            class="w-full p-3 rounded-lg border border-slate-300 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            placeholder="Sorunu buraya yazınız... (Örn: Çankaya caddesinde büyük bir çukur var.)"></textarea>
+                    </div>
+
+                    <button onclick="submitCitizenReport()"
+                        class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg transition active:scale-95">
+                        Belediyeye Bildir
+                    </button>
+
+                    <!-- Success Alert (Hidden) -->
+                    <div id="citizenSuccess"
+                        class="hidden mt-4 p-3 bg-green-100 text-green-800 rounded-lg text-sm text-center font-medium border border-green-200">
+                        Bildiriminiz başarıyla sisteme (PostGIS) iletildi!
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Municipal Web Dashboard -->
+        <div class="w-2/3 bg-slate-900 flex flex-col relative">
+
+            <!-- Map Background Placeholder (Simulated via SVG Grid) -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none"
+                style="background-image: radial-gradient(circle, #818cf8 1px, transparent 1px); background-size: 20px 20px;">
+            </div>
+
+            <div class="p-6 relative z-10 flex flex-col h-full">
+                <div class="mb-6 flex justify-between items-end">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">Büyükşehir Yönetim Paneli</h2>
+                        <p class="text-sm text-indigo-300 mt-1">Moderatör & Koordinatör Ortak Triage Ekranı</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <div class="px-3 py-1 bg-slate-800 border border-slate-700 rounded-lg text-sm font-medium"><span
+                                class="text-yellow-400">Bekleyen: <span id="countPending">0</span></span></div>
+                        <div class="px-3 py-1 bg-slate-800 border border-slate-700 rounded-lg text-sm font-medium"><span
+                                class="text-blue-400">Çözüme Atanan: <span id="countProgress">2</span></span></div>
+                    </div>
+                </div>
+
+                <!-- Triage Queue Table -->
+                <div
+                    class="flex-1 glass-panel rounded-xl overflow-hidden shadow-2xl flex flex-col border border-slate-700">
+                    <div class="bg-slate-800/80 px-6 py-4 border-b border-slate-700 flex justify-between items-center">
+                        <h3 class="font-semibold text-white">Gelen İhbar Kuyruğu (Real-time Stream)</h3>
+                        <span class="text-xs text-slate-400">Tag-Signature Anti-Duplicate: Aktif</span>
+                    </div>
+                    <div class="flex-1 overflow-y-auto p-0">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-slate-800/50 text-slate-300 text-xs uppercase sticky top-0">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold">Tarih</th>
+                                    <th class="px-6 py-3 font-semibold">Kategori</th>
+                                    <th class="px-6 py-3 font-semibold">Açıklama Özeti</th>
+                                    <th class="px-6 py-3 font-semibold">Durum</th>
+                                    <th class="px-6 py-3 font-semibold text-right">Moderatör Aksiyonu</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reportTableBody" class="divide-y divide-slate-700/50 text-slate-200">
+                                <!-- Pre-existing mock records -->
+                                <tr class="hover:bg-slate-800/40 transition">
+                                    <td class="px-6 py-4 font-mono text-xs text-slate-400">2dk önce</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 bg-slate-700 text-slate-200 rounded text-xs">Aydınlatma</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-300 truncate max-w-xs">Karanfil sokak başındaki
+                                        lambalar 3 gündür yanmıyor.</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 border border-blue-700/50 rounded-full text-xs font-medium">İşlemde</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button disabled
+                                            class="text-xs text-slate-500 px-3 py-1 border border-slate-700 rounded bg-slate-800/50 cursor-not-allowed">Fen
+                                            İşlerine Aktarıldı</button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40 transition">
+                                    <td class="px-6 py-4 font-mono text-xs text-slate-400">18dk önce</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 bg-slate-700 text-slate-200 rounded text-xs">Çevre</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-300 truncate max-w-xs">Park içindeki çöp kovaları
+                                        taşmış durumda.</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 border border-blue-700/50 rounded-full text-xs font-medium">İşlemde</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button disabled
+                                            class="text-xs text-slate-500 px-3 py-1 border border-slate-700 rounded bg-slate-800/50 cursor-not-allowed">Temizlik
+                                            İşlerine Aktarıldı</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Empty State Notice -->
+                        <div id="emptyNotice" class="text-center py-12 text-slate-500 hidden">
+                            Triage kuyruğunda bekleyen ihbar bulunmamaktadır.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic Script -->
+    <script>
+        let pendingCount = 0;
+
+        function submitCitizenReport() {
+            const category = document.getElementById('issueCategory').value;
+            const desc = document.getElementById('issueDesc').value;
+
+            if (!desc.trim()) {
+                alert("Lütfen durumu açıklayan bir metin girin.");
+                return;
+            }
+
+            // Simulate Network Delay & Success
+            const btn = document.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Gönderiliyor...";
+            btn.disabled = true;
+            btn.classList.add("opacity-70");
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.classList.remove("opacity-70");
+
+                document.getElementById('citizenSuccess').classList.remove('hidden');
+                document.getElementById('issueDesc').value = '';
+
+                // Hide success message after 3 seconds
+                setTimeout(() => { document.getElementById('citizenSuccess').classList.add('hidden'); }, 3000);
+
+                // ADD TO DASHBOARD
+                addReportToDashboard(category, desc);
+
+            }, 800);
+        }
+
+        function addReportToDashboard(category, desc) {
+            const tbody = document.getElementById('reportTableBody');
+
+            const tr = document.createElement('tr');
+            tr.className = "hover:bg-slate-800/40 transition bg-indigo-900/20"; // Highlight new
+
+            // Unique ID for resolving
+            const rowId = 'row-' + Math.random().toString(36).substr(2, 9);
+            tr.id = rowId;
+
+            tr.innerHTML = `
+                <td class="px-6 py-4 font-mono text-xs text-indigo-400 font-bold">Az önce</td>
+                <td class="px-6 py-4"><span class="px-2 py-1 bg-indigo-600/50 border border-indigo-500 text-indigo-100 rounded text-xs font-medium">${category}</span></td>
+                <td class="px-6 py-4 text-white font-medium truncate max-w-xs">${desc}</td>
+                <td class="px-6 py-4"><span class="px-2 py-1 bg-yellow-900/50 text-yellow-400 border border-yellow-700/50 rounded-full text-xs font-bold animate-pulse">Yeni İhbar</span></td>
+                <td class="px-6 py-4 text-right">
+                    <button onclick="approveReport('${rowId}')" class="text-xs text-white px-3 py-1 bg-indigo-600 hover:bg-indigo-500 rounded shadow transition">Sisteme Onayla</button>
+                    <button onclick="rejectReport('${rowId}')" class="text-xs text-slate-300 ml-2 hover:text-red-400 transition">Reddet</button>
+                </td>
+            `;
+
+            // Prepend directly underneath the header
+            tbody.insertBefore(tr, tbody.firstChild);
+
+            pendingCount++;
+            document.getElementById('countPending').innerText = pendingCount;
+        }
+
+        function approveReport(rowId) {
+            const row = document.getElementById(rowId);
+            // Update status text and color
+            const statusTd = row.querySelectorAll('td')[3];
+            statusTd.innerHTML = `<span class="px-2 py-1 bg-blue-900/50 text-blue-300 border border-blue-700/50 rounded-full text-xs font-medium">Kabul Edildi (Atandı)</span>`;
+
+            // Remove buttons
+            const actionTd = row.querySelectorAll('td')[4];
+            actionTd.innerHTML = `<button disabled class="text-xs text-slate-500 px-3 py-1 border border-slate-700 rounded bg-slate-800/50 cursor-not-allowed">Saha Ekibine İletildi</button>`;
+
+            row.classList.remove("bg-indigo-900/20");
+
+            pendingCount--;
+            document.getElementById('countPending').innerText = pendingCount;
+
+            let progress = parseInt(document.getElementById('countProgress').innerText);
+            document.getElementById('countProgress').innerText = progress + 1;
+        }
+
+        function rejectReport(rowId) {
+            const row = document.getElementById(rowId);
+            // Update status text and color
+            const statusTd = row.querySelectorAll('td')[3];
+            statusTd.innerHTML = `<span class="px-2 py-1 bg-red-900/50 text-red-400 border border-red-700/50 rounded-full text-xs font-medium">İptal Edildi</span>`;
+
+            // Remove buttons
+            const actionTd = row.querySelectorAll('td')[4];
+            actionTd.innerHTML = `<span class="text-xs text-red-500">Spam/Geçersiz İşlem</span>`;
+
+            row.classList.remove("bg-indigo-900/20");
+            row.classList.add("opacity-50");
+
+            pendingCount--;
+            document.getElementById('countPending').innerText = pendingCount;
+        }
+    </script>
+</body>
+
+</html>
