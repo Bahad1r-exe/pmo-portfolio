@@ -1,7 +1,7 @@
-# HASAN BERA KABADAYI
+# Bahadýr TÜRK
 **IT Business Analyst & PMO Candidate**
-Ankara, TÃ¼rkiye | hasanberakabadayi@email.com | +90 5XX XXX XX XX 
-**LinkedIn:** [linkedin.com/in/hasanberakabadayi](#) | **Portfolio:** [hbk-portfolio.netlify.app](#) | **GitHub:** [github.com/hasanberakabadayi](#)
+Ankara, TÃ¼rkiye | bahadirTürk@email.com | +90 5XX XXX XX XX 
+**LinkedIn:** [linkedin.com/in/bahadirTürk](#) | **Portfolio:** [BT-portfolio.netlify.app](#) | **GitHub:** [github.com/bahadirTürk](#)
 
 ---
 
