@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijital Kredi Karar Motoru (Business Analysis Demo)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #3b82f6;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-6">
+
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+        <!-- Header -->
+        <div class="bg-blue-600 px-6 py-5 text-center">
+            <h2 class="text-white text-xl font-bold tracking-tight">Hızlı Kredi Başvurusu</h2>
+            <p class="text-blue-100 text-sm mt-1">Karar Motoru Simülasyonu (V1.2)</p>
+        </div>
+
+        <!-- Form Area -->
+        <div id="applicationForm" class="p-6">
+            <div class="mb-5">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="tcNumber">T.C. Kimlik Numarası (Demo
+                    için sabit: 12345678901)</label>
+                <input id="tcNumber" type="text" value="12345678901" disabled
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 focus:outline-none">
+            </div>
+
+            <div class="mb-5">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="creditAmount">Talep Edilen Tutar
+                    (₺)</label>
+                <input id="creditAmount" type="number" placeholder="Örn: 50000"
+                    class="w-full px-4 py-2 border border-blue-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-shadow">
+                <p class="text-xs text-gray-500 mt-1">Sistem kuralı: 100.000₺'ye kadar otomatik skorlanır, üzeri limite
+                    girmez.</p>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="creditTerm">Vade (Ay)</label>
+                <select id="creditTerm"
+                    class="w-full px-4 py-2 border border-blue-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                    <option value="12">12 Ay</option>
+                    <option value="24">24 Ay</option>
+                    <option value="36">36 Ay</option>
+                </select>
+            </div>
+
+            <button id="submitBtn" onclick="simulateDecisionEngine()"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-200">
+                Karar Motoruna Gönder
+            </button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="hidden p-10 flex flex-col items-center justify-center text-center">
+            <div class="spinner mb-4"></div>
+            <h3 class="font-semibold text-gray-800 text-lg">KKB Sorgulanıyor...</h3>
+            <p class="text-sm text-gray-500 mt-2">API üzerinden Mernis ve İç Risk Modeli (BPMN Akışı) işletiliyor.</p>
+        </div>
+
+        <!-- Result State -->
+        <div id="resultState" class="hidden p-6 text-center">
+            <div id="resultIcon" class="mx-auto flex items-center justify-center w-16 h-16 rounded-full mb-4">
+                <!-- Icon Injected by JS -->
+            </div>
+            <h3 id="resultTitle" class="text-2xl font-bold mb-2"></h3>
+            <p id="resultDesc" class="text-gray-600 mb-6"></p>
+
+            <div class="p-4 bg-gray-50 rounded-lg text-left text-sm text-gray-700 mb-6">
+                <p><strong>Log (Business Analysis):</strong></p>
+                <p id="logDetails" class="mt-2 font-mono text-xs"></p>
+            </div>
+
+            <button onclick="resetForm()"
+                class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition duration-200">
+                Yeni Simülasyon (BA Test)
+            </button>
+        </div>
+    </div>
+
+    <!-- Logic Script (Mocking Backend Engine) -->
+    <script>
+        function simulateDecisionEngine() {
+            const amount = parseInt(document.getElementById('creditAmount').value);
+            const term = document.getElementById('creditTerm').value;
+
+            if (!amount || amount <= 0) {
+                alert("Lütfen geçerli bir tutar giriniz.");
+                return;
+            }
+
+            // UI Transitions
+            document.getElementById('applicationForm').classList.add('hidden');
+            document.getElementById('loadingState').classList.remove('hidden');
+
+            // Simulate API Latency (2 seconds)
+            setTimeout(() => {
+                document.getElementById('loadingState').classList.add('hidden');
+                document.getElementById('resultState').classList.remove('hidden');
+
+                const { title, desc, log, statusColor, iconHtml } = runBusinessRules(amount, term);
+
+                document.getElementById('resultIcon').className = `mx-auto flex items-center justify-center w-16 h-16 rounded-full mb-4 ${statusColor}`;
+                document.getElementById('resultIcon').innerHTML = iconHtml;
+                document.getElementById('resultTitle').innerText = title;
+                document.getElementById('resultDesc').innerText = desc;
+                document.getElementById('logDetails').innerText = log;
+
+            }, 2000);
+        }
+
+        function runBusinessRules(amount, term) {
+            // BA Requirement Mocking:
+            // 1. Tutar > 100.000 => Manuel İnceleme / Red
+            // 2. Tutar < 100.000 => Random skor üreterek otomatik Onay/Red
+
+            const kkbScore = Math.floor(Math.random() * (1900 - 800 + 1) + 800); // 800-1900 KKB Score
+            const logEntry = `Payload: { amount: ${amount}, term: ${term} }\nRule 1: Hard Limit Check: ${amount > 100000 ? 'FAILED' : 'PASSED'}\nRule 2: KKB Score [${kkbScore}] Check...`;
+
+            if (amount > 100000) {
+                return {
+                    title: "Manuel İncelemeye Düştü",
+                    desc: "Tutar politikamız gereği otomatik onay limitini aşıyor. (FR_06 İhlali). Tahsis Uzmanı iş listesine aktarıldı.",
+                    log: logEntry + "\nResult: TAH_REV (Manuel Review)",
+                    statusColor: "bg-yellow-100 text-yellow-600",
+                    iconHtml: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>'
+                };
+            }
+
+            if (kkbScore >= 1300) {
+                return {
+                    title: "Otomatik Onaylandı!",
+                    desc: "Kredi başvurunuz karar motoru tarafından kabul edildi. Sözleşme adımına geçebilirsiniz.",
+                    log: logEntry + `\nThreshold: 1300. \nResult: APPROVED (Auto)`,
+                    statusColor: "bg-green-100 text-green-600",
+                    iconHtml: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>'
+                };
+            } else {
+                return {
+                    title: "Otomatik Reddedildi",
+                    desc: "Risk skorlaması (Karar Motoru V2) politikaları uyarınca maalesef başvurunuz olumsuz sonuçlandı.",
+                    log: logEntry + `\nThreshold: 1300. \nResult: REJECTED (Auto)`,
+                    statusColor: "bg-red-100 text-red-600",
+                    iconHtml: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
+                };
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('creditAmount').value = '';
+            document.getElementById('resultState').classList.add('hidden');
+            document.getElementById('applicationForm').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
