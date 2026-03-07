@@ -90,7 +90,47 @@
             margin-bottom: 8px;
         }
 
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px auto;
+        }
+
+        .print-btn,
+        .download-btn {
+            width: 200px;
+            padding: 10px;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .print-btn {
+            background-color: #2563eb;
+        }
+
+        .print-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .download-btn {
+            background-color: #10b981;
+        }
+
+        .download-btn:hover {
+            background-color: #059669;
+        }
+
         @media print {
+            .action-buttons {
+                display: none;
+            }
+
             body {
                 max-width: 100%;
                 padding: 0;
@@ -101,11 +141,22 @@
 
 <body>
 
+    <div class="action-buttons">
+        <button class="print-btn" onclick="window.print()">Yazdır</button>
+        <button class="download-btn" onclick="downloadInfo()">PDF İndir</button>
+    </div>
+    <script>
+        function downloadInfo() {
+            alert('PDF olarak indirmek için açılan pencerede "Hedef" (Destination) kısmından "PDF Olarak Kaydet" (Save as PDF) seçeneğini seçiniz.\nDosya adı otomatik olarak doğru şekilde ayarlanacaktır.');
+            window.print();
+        }
+    </script>
+
     <h1>Bahadır TÜRK</h1>
 
     <div class="contact-info">
         IT Business Analyst / PMO Analyst Adayı<br>
-        Ankara, Türkiye | bahadirturk@email.com | +90 5XX XXX XX XX<br>
+        Ankara, Türkiye | muhbad236@gmail.com | +90 551 953 35 96<br>
         LinkedIn: <a
             href="https://www.linkedin.com/in/bahad%C4%B1r-t%C3%BCrk-04b706193/">linkedin.com/in/bahadirturk</a> |
         Portfolyo: <a href="https://bahadirturk.netlify.app">bahadirturk.netlify.app</a> |
