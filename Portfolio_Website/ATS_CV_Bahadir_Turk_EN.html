@@ -96,12 +96,17 @@
             font-weight: normal;
         }
 
-        .print-btn {
-            display: block;
-            width: 200px;
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin: 20px auto;
+        }
+
+        .print-btn,
+        .download-btn {
+            width: 200px;
             padding: 10px;
-            background-color: #2563eb;
             color: white;
             border: none;
             font-weight: bold;
@@ -111,12 +116,24 @@
             text-decoration: none;
         }
 
+        .print-btn {
+            background-color: #2563eb;
+        }
+
         .print-btn:hover {
             background-color: #1d4ed8;
         }
 
+        .download-btn {
+            background-color: #10b981;
+        }
+
+        .download-btn:hover {
+            background-color: #059669;
+        }
+
         @media print {
-            .print-btn {
+            .action-buttons {
                 display: none;
             }
 
@@ -130,7 +147,16 @@
 
 <body>
 
-    <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    <div class="action-buttons">
+        <button class="print-btn" onclick="window.print()">Print CV</button>
+        <button class="download-btn" onclick="downloadInfo()">Download PDF</button>
+    </div>
+    <script>
+        function downloadInfo() {
+            alert('To download as a PDF, please select "Save as PDF" from the Destination dropdown in the print menu.');
+            window.print();
+        }
+    </script>
 
     <div class="header-content">
         <h1>Bahadır TÜRK</h1>
