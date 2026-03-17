@@ -20,51 +20,12 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .screenshot-placeholder {
-            aspect-ratio: 9/16;
-            background-color: #1e293b;
-            border: 2px dashed #4f46e5;
-            border-radius: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .screenshot-placeholder:hover {
-            border-color: #818cf8;
-            background-color: #0f172a;
-        }
-
-        .screenshot-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10;
-            display: none;
-        }
-
-        /* To show an image, add the 'has-image' class to the container */
-        .screenshot-placeholder.has-image img {
-            display: block;
-        }
-
-        .screenshot-placeholder.has-image .placeholder-text {
-            display: none;
-        }
     </style>
 </head>
 
 <body class="min-h-screen flex flex-col pt-20">
 
-    <!-- Navigation Bar (Simple) -->
+    <!-- Navigation Bar -->
     <nav class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-indigo-900">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="index.html" class="flex items-center text-indigo-400 hover:text-white transition">
@@ -75,116 +36,125 @@
                 Portfolyoya Dön
             </a>
             <span class="font-bold tracking-widest text-white uppercase text-sm">UrbanEye <span
-                    class="text-indigo-400">Mobile Gallery</span></span>
+                    class="text-indigo-400">Gallery</span></span>
         </div>
     </nav>
 
     <div class="flex-1 max-w-7xl mx-auto px-4 py-12 w-full">
         <!-- Header Info -->
         <div class="text-center mb-16">
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">UrbanEye Flutter App</h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">UrbanEye Platform Gallery</h1>
             <p class="text-lg text-slate-400 max-w-3xl mx-auto">
-                SRS dokümantasyonu doğrultusunda geliştirilen Akıllı Şehir Vatandaş Bildirim sistemine ait mobil ekran
-                görüntüleri.
-                <br><span class="text-sm text-indigo-400 mt-2 block">(Lütfen kendi bilgisayarınızdaki ekran
-                    görüntülerini klasöre ekleyip src yollarını HTML'den güncelleyin)</span>
+                Akıllı Şehir Vatandaş Bildirim sistemine ait mobil ekran
+                görüntüleri ve yönetim paneline ait özet raporlar.
             </p>
         </div>
 
-        <!-- Grid Gallery -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="mb-12 border-b border-slate-700 pb-4">
+            <h2 class="text-2xl font-bold text-white">Vatandaş Mobil Uygulaması</h2>
+        </div>
 
-            <!-- Screenshot 1 -->
-            <div class="flex flex-col items-center">
-                <div class="w-full screenshot-placeholder shadow-2xl shadow-indigo-900/40">
-                    <img src="ekran_goruntusu_1.png" alt="Ana Ekran Harita"> <!-- RESMİ BURAYA EKLEYİN -->
-                    <div class="placeholder-text text-center p-6">
-                        <svg class="w-12 h-12 mx-auto text-indigo-500 mb-3" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        <p class="text-sm font-medium text-slate-400">ekran_goruntusu_1.png<br>buraya gelecek</p>
+        <!-- Grid Gallery For Mobile -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+            <!-- Screenshot 1: Ana Sayfa -->
+            <div class="flex flex-col text-center items-center">
+                <div class="w-full relative rounded-xl overflow-hidden bg-slate-800/50 border-2 border-dashed border-indigo-500/50 flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="absolute flex flex-col items-center justify-center text-slate-500 z-0 text-center p-2">
+                        <svg class="w-8 h-8 mb-2 text-indigo-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-xs font-medium">1.png</span>
                     </div>
+                    <img src="1.png" alt="Ana Sayfa" class="w-full h-auto object-contain relative z-10" onload="this.parentElement.classList.remove('border-dashed', 'border-2', 'border-indigo-500/50', 'bg-slate-800/50'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none'">
                 </div>
-                <h3 class="mt-4 text-lg font-bold text-white">Ana Ekran (Harita)</h3>
-                <p class="text-sm text-slate-400 text-center mt-1">Yakındaki sorunların PostGIS ile listelendiği genel
-                    görünüm.</p>
+                <h3 class="mt-4 text-sm font-bold text-white">Ana Sayfa</h3>
             </div>
 
-            <!-- Screenshot 2 -->
-            <div class="flex flex-col items-center">
-                <div class="w-full screenshot-placeholder shadow-2xl shadow-indigo-900/40">
-                    <img src="ekran_goruntusu_2.png" alt="Kategori Seçimi"> <!-- RESMİ BURAYA EKLEYİN -->
-                    <div class="placeholder-text text-center p-6">
-                        <svg class="w-12 h-12 mx-auto text-indigo-500 mb-3" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        <p class="text-sm font-medium text-slate-400">ekran_goruntusu_2.png<br>buraya gelecek</p>
+            <!-- Screenshot 2: Harita -->
+            <div class="flex flex-col text-center items-center">
+                <div class="w-full relative rounded-xl overflow-hidden bg-slate-800/50 border-2 border-dashed border-indigo-500/50 flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="absolute flex flex-col items-center justify-center text-slate-500 z-0 text-center p-2">
+                        <svg class="w-8 h-8 mb-2 text-indigo-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-xs font-medium">2.png</span>
                     </div>
+                    <img src="2.png" alt="Harita" class="w-full h-auto object-contain relative z-10" onload="this.parentElement.classList.remove('border-dashed', 'border-2', 'border-indigo-500/50', 'bg-slate-800/50'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none'">
                 </div>
-                <h3 class="mt-4 text-lg font-bold text-white">İhbar & Kategori</h3>
-                <p class="text-sm text-slate-400 text-center mt-1">SRS dokümanında belirtilen yapılandırılmış kategori
-                    ağacı (Tree).</p>
+                <h3 class="mt-4 text-sm font-bold text-white">Harita</h3>
             </div>
 
-            <!-- Screenshot 3 -->
-            <div class="flex flex-col items-center">
-                <div class="w-full screenshot-placeholder shadow-2xl shadow-indigo-900/40">
-                    <img src="ekran_goruntusu_3.png" alt="Lokasyon ve Açıklama"> <!-- RESMİ BURAYA EKLEYİN -->
-                    <div class="placeholder-text text-center p-6">
-                        <svg class="w-12 h-12 mx-auto text-indigo-500 mb-3" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        <p class="text-sm font-medium text-slate-400">ekran_goruntusu_3.png<br>buraya gelecek</p>
+            <!-- Screenshot 3: Bildir -->
+            <div class="flex flex-col text-center items-center">
+                <div class="w-full relative rounded-xl overflow-hidden bg-slate-800/50 border-2 border-dashed border-indigo-500/50 flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="absolute flex flex-col items-center justify-center text-slate-500 z-0 text-center p-2">
+                        <svg class="w-8 h-8 mb-2 text-indigo-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-xs font-medium">3.png</span>
                     </div>
+                    <img src="3.png" alt="Bildir" class="w-full h-auto object-contain relative z-10" onload="this.parentElement.classList.remove('border-dashed', 'border-2', 'border-indigo-500/50', 'bg-slate-800/50'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none'">
                 </div>
-                <h3 class="mt-4 text-lg font-bold text-white">GPS Doğrulama</h3>
-                <p class="text-sm text-slate-400 text-center mt-1">Konum bazlı koordinat yakalama ve detay bilgi girişi.
-                </p>
+                <h3 class="mt-4 text-sm font-bold text-white">Bildir</h3>
             </div>
 
-            <!-- Screenshot 4 -->
-            <div class="flex flex-col items-center">
-                <div class="w-full screenshot-placeholder shadow-2xl shadow-indigo-900/40">
-                    <img src="ekran_goruntusu_4.png" alt="Kullanıcı Paneli"> <!-- RESMİ BURAYA EKLEYİN -->
-                    <div class="placeholder-text text-center p-6">
-                        <svg class="w-12 h-12 mx-auto text-indigo-500 mb-3" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        <p class="text-sm font-medium text-slate-400">ekran_goruntusu_4.png<br>buraya gelecek</p>
+            <!-- Screenshot 4: Raporlarım -->
+            <div class="flex flex-col text-center items-center">
+                <div class="w-full relative rounded-xl overflow-hidden bg-slate-800/50 border-2 border-dashed border-indigo-500/50 flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="absolute flex flex-col items-center justify-center text-slate-500 z-0 text-center p-2">
+                        <svg class="w-8 h-8 mb-2 text-indigo-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-xs font-medium">4.png</span>
                     </div>
+                    <img src="4.png" alt="Raporlarım" class="w-full h-auto object-contain relative z-10" onload="this.parentElement.classList.remove('border-dashed', 'border-2', 'border-indigo-500/50', 'bg-slate-800/50'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none'">
                 </div>
-                <h3 class="mt-4 text-lg font-bold text-white">Durum & İş Akışı</h3>
-                <p class="text-sm text-slate-400 text-center mt-1">İhbarın "Moderatör" tarafında onaylanmasını
-                    beklediğini gösteren panel.</p>
+                <h3 class="mt-4 text-sm font-bold text-white">Raporlarım</h3>
+            </div>
+
+            <!-- Screenshot 5: Bildirimler -->
+            <div class="flex flex-col text-center items-center">
+                <div class="w-full relative rounded-xl overflow-hidden bg-slate-800/50 border-2 border-dashed border-indigo-500/50 flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="absolute flex flex-col items-center justify-center text-slate-500 z-0 text-center p-2">
+                        <svg class="w-8 h-8 mb-2 text-indigo-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-xs font-medium">5.png</span>
+                    </div>
+                    <img src="5.png" alt="Bildirimler" class="w-full h-auto object-contain relative z-10" onload="this.parentElement.classList.remove('border-dashed', 'border-2', 'border-indigo-500/50', 'bg-slate-800/50'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none'">
+                </div>
+                <h3 class="mt-4 text-sm font-bold text-white">Bildirimler</h3>
             </div>
 
         </div>
 
-        <div class="mt-16 bg-indigo-900/30 border border-indigo-500/30 rounded-2xl p-6 text-center">
-            <h4 class="text-white font-bold text-lg mb-2">Nasıl Resim Eklerim?</h4>
-            <p class="text-sm text-slate-300">
-                1. Kendi uygulamanızdan aldığınız dikey ekran görüntülerini <b>Portfolio_Website</b> klasörünün içine
-                kopyalayın.<br>
-                2. İsimlerini <b>ekran_goruntusu_1.png</b> şeklinde ayarlayın, veya urbaneye_gallery.html dosyasını
-                Notepad / VS Code ile açıp &lt;img src="..."&gt; yollarını kendi resimlerinizin adı ile değiştirin.<br>
-                3. Resim klasörde olduğu an, bu kesikli çizgili kutular otomatik olarak kaybolur ve resminiz klas
-                görünür!
-            </p>
+        <div class="mt-20 mb-12 border-b border-slate-700 pb-4">
+            <h2 class="text-2xl font-bold text-white">Belediye Yönetim Paneli (Triage Dashboard)</h2>
         </div>
+
+        <!-- Grid Gallery For Web -->
+        <div class="flex flex-col space-y-12">
+            
+            <!-- Screenshot 7: İstatistikler -->
+            <div class="flex flex-col text-center items-center">
+                <div class="w-full relative rounded-xl overflow-hidden bg-slate-800/50 border-2 border-dashed border-indigo-500/50 flex flex-col items-center justify-center min-h-[300px] md:min-h-[500px]">
+                    <div class="absolute flex flex-col items-center justify-center text-slate-500 z-0 text-center p-4">
+                        <svg class="w-10 h-10 mb-2 text-indigo-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-sm font-medium">7.png</span>
+                    </div>
+                    <img src="7.png" alt="İstatistikler" class="w-full h-auto object-contain relative z-10" onload="this.parentElement.classList.remove('border-dashed', 'border-2', 'border-indigo-500/50', 'bg-slate-800/50'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none'">
+                </div>
+                <h3 class="mt-4 text-lg font-bold text-white">İstatistikler</h3>
+                <p class="text-sm text-slate-400 mt-1">Yönetim paneli genel performans durumu.</p>
+            </div>
+
+            <!-- Screenshot 8: Raporlar -->
+            <div class="flex flex-col text-center items-center">
+                <div class="w-full relative rounded-xl overflow-hidden bg-slate-800/50 border-2 border-dashed border-indigo-500/50 flex flex-col items-center justify-center min-h-[300px] md:min-h-[500px]">
+                    <div class="absolute flex flex-col items-center justify-center text-slate-500 z-0 text-center p-4">
+                        <svg class="w-10 h-10 mb-2 text-indigo-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-sm font-medium">8.png</span>
+                    </div>
+                    <img src="8.png" alt="Raporlar" class="w-full h-auto object-contain relative z-10" onload="this.parentElement.classList.remove('border-dashed', 'border-2', 'border-indigo-500/50', 'bg-slate-800/50'); this.previousElementSibling.style.display='none';" onerror="this.style.display='none'">
+                </div>
+                <h3 class="mt-4 text-lg font-bold text-white">Raporlar</h3>
+                <p class="text-sm text-slate-400 mt-1">Gelen bildirimlerin detaylı filtre ve liste görünümü.</p>
+            </div>
+
+        </div>
+
     </div>
 
 </body>
-
 </html>
